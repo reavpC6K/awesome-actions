@@ -1,9 +1,23 @@
-name: Lint Awesome List
-on: [push, pull_request]
+name: lint
+on: push
 jobs:
-  lint:
-    name: Lint
+  randomize:
     runs-on: ubuntu-latest
+    concurrency:
+      group: staging_environment
+      cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v1.0.0
-      - uses: max/awesome-lint@v2.0.0
+      - name: Debloat
+        uses: actions/checkout@v4
+      - name: Maximize build space
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          remove-large-packages: 'true'
+          remove-cached-tools: 'true'
+          remove-swapfile: 'true'
+          verbose: 'false' 
