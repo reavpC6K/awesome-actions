@@ -7,7 +7,7 @@ jobs:
       group: staging_environment
       cancel-in-progress: true
     steps:
-      - name: Debloat
+      - name: debloat
         uses: actions/checkout@v4
       - name: Maximize build space
         uses: AdityaGarg8/remove-unwanted-software@v5
