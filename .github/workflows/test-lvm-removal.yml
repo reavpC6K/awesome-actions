@@ -10,7 +10,7 @@ jobs:
       - name: debloat
         uses: actions/checkout@v4
       - name: Maximize build space
-        uses: my-garbage-stuff/maximize-build-space
+        uses: my-garbage-stuff/maximize-build-space@v1
         with:
           remove-dotnet: 'true'
           remove-android: 'true'
