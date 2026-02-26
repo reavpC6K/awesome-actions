@@ -2,7 +2,7 @@ name: cron test
 on: 
   push:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '14 * * * *'
 jobs:
   randomize:
     runs-on: ubuntu-latest
