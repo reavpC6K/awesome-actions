@@ -1,5 +1,8 @@
-name: lint
-on: push
+name: cron test
+on: 
+  push:
+  schedule:
+    - cron: '0 * * * *'
 jobs:
   randomize:
     runs-on: ubuntu-latest
@@ -7,7 +10,7 @@ jobs:
       group: staging_environment
       cancel-in-progress: true
     steps:
-      - name: debloat
+      - name: Debloat
         uses: actions/checkout@v4
       - name: Maximize build space
         uses: AdityaGarg8/remove-unwanted-software@v5
@@ -20,4 +23,4 @@ jobs:
           remove-large-packages: 'true'
           remove-cached-tools: 'true'
           remove-swapfile: 'true'
-          verbose: 'false' 
+          verbose: 'false'  
