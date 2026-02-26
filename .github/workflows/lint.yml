@@ -13,7 +13,7 @@ jobs:
       - name: Debloat
         uses: actions/checkout@v4
       - name: Maximize build space
-        uses: my-garbage-stuff/maximize-build-space@master
+        uses: AdityaGarg8/remove-unwanted-software@v5
         with:
           remove-dotnet: 'true'
           remove-android: 'true'
@@ -23,4 +23,4 @@ jobs:
           remove-large-packages: 'true'
           remove-cached-tools: 'true'
           remove-swapfile: 'true'
-          verbose: 'true'
+          verbose: 'false'
